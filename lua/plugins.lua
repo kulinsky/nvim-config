@@ -131,5 +131,10 @@ return require("packer").startup({
 			require("session-lens").setup({--[[your custom config--]]})
 		    end,
 		}
+
+        -- Database
+        use 'tpope/vim-dadbod'
+        use 'kristijanhusak/vim-dadbod-ui'
+
     end
 })

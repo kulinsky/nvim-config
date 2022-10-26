@@ -1,4 +1,4 @@
-print('hello')
+print('rust power!')
 
 require('options')
 
