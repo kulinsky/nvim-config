@@ -136,5 +136,7 @@ return require("packer").startup({
         use 'tpope/vim-dadbod'
         use 'kristijanhusak/vim-dadbod-ui'
 
+        use 'ThePrimeagen/vim-be-good'
+
     end
 })
