@@ -5,7 +5,7 @@ require("lualine").setup({
     components_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = {},
-    theme = "tokyonight",
+    theme = "dracula",
     globalstatus = true,
   },
   sections = {

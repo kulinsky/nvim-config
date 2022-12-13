@@ -32,6 +32,8 @@ vim.opt.completeopt = "menuone,noselect"
 vim.opt.signcolumn = "yes" 
 vim.opt.termguicolors = true
 
+-- disable default show mode
+vim.opt.showmode = false
 
 -- highlight on yank
 vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])

@@ -73,6 +73,7 @@ cmp.setup({
         { name = "buffer" },
         { name = "luasnip" },
         { name = "path" },
+        { name = "crates" },
     }),
     experimental = {
         -- native_menu = false,

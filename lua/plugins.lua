@@ -10,7 +10,10 @@ return require("packer").startup({
 		-- LSP
 		use 'neovim/nvim-lspconfig'
 
-		-- Telescope
+        -- rust-tools
+        use 'simrat39/rust-tools.nvim'
+		
+        -- Telescope
 		use {
 			"nvim-telescope/telescope.nvim",
 			requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
@@ -131,6 +134,15 @@ return require("packer").startup({
 			require("session-lens").setup({--[[your custom config--]]})
 		    end,
 		}
+
+        use {
+            'saecki/crates.nvim',
+            tag = 'v0.3.0',
+            requires = { 'nvim-lua/plenary.nvim' },
+            config = function()
+                require('crates').setup()
+            end,
+        }
 
         -- Database
         use 'tpope/vim-dadbod'

@@ -27,11 +27,15 @@ local on_attach = function(client, bufnr)
 end
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "rounded",
+    border = "rounded",
+    max_width = nil,
+    max_height = nil,
 })
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "rounded",
+    border = "rounded",
+    max_width = nil,
+    max_height = nil,
 })
 
 local lsp_flags = {
@@ -49,12 +53,34 @@ require('lspconfig')['gopls'].setup{
     flags = lsp_flags,
 }
 
-require('lspconfig')['rust_analyzer'].setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-        ["rust-analyzer"] = {}
-    }
-}
+-- require('lspconfig')['rust_analyzer'].setup{
+--     on_attach = on_attach,
+--     flags = lsp_flags,
+--     -- Server-specific settings...
+--     settings = {
+--         ["rust-analyzer"] = {}
+--     }
+-- }
+
+local rt = require('rust-tools')
+
+rt.setup({
+    server = {
+        -- on_attach = on_attach,
+        flags = lsp_flags,
+
+        on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
+
+            -- Enable inlay hints auto update and set them for all the buffers
+            rt.inlay_hints.enable()
+
+            -- Hover actions
+            vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, { buffer = bufnr })
+
+            -- Code action groups
+            vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
+        end,
+    },
+})
 
