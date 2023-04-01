@@ -43,14 +43,18 @@ local lsp_flags = {
     debounce_text_changes = 150,
 }
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require('lspconfig')['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 }
 
 require('lspconfig')['gopls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 }
 
 -- require('lspconfig')['rust_analyzer'].setup{

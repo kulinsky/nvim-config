@@ -1,3 +1,5 @@
+vim.opt.guicursor = ""
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -38,3 +40,4 @@ vim.opt.showmode = false
 -- highlight on yank
 vim.cmd([[au TextYankPost * silent! lua vim.highlight.on_yank()]])
 
+vim.opt.foldmethod = "syntax"

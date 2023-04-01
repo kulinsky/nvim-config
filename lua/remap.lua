@@ -6,6 +6,9 @@ local inoremap = require("keymap").inoremap
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 inoremap("jk", "<ESC>")
 
+nnoremap("<leader>gn", "<cmd>bn<CR>" )
+nnoremap("<leader>gp", "<cmd>bp<CR>" )
+nnoremap("<leader>gd", "<cmd>bd<CR>" )
 
 local telescope_b = require("telescope.builtin")
 nnoremap("ff", telescope_b.find_files)
